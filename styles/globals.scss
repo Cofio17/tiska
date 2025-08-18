@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+*,
+*::before,
+*::after {
+ box-sizing: border-box;
+ margin: 0;
+ border: 0;
+ padding: 0;
+}
+
+.standard-transition-300 {
+ @apply transition duration-300 ease-out;
+}
