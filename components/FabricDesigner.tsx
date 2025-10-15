@@ -69,7 +69,7 @@ export default function FabricDesigner() {
      showRulers={showRulers}
     />
    </div>
-   <div className='flex flex-col gap-4 h-full'>
+   <div className='flex flex-col gap-4 h-full z-50 sticky'>
     <UploadControl onUpload={setImageBitmap} />
     <SettingsPanel
      widthCm={widthCm}

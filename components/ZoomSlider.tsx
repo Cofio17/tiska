@@ -5,7 +5,7 @@ export default function ZoomSlider({ zoom, onChange }: {
   onChange: (v: number) => void 
 }) {
   return (
-    <div className="fixed w-full bottom-0 bg-white shadow-lg h-[50px] flex items-center gap-2 z-50">
+    <div className="fixed w-full bottom-0 bg-white shadow-lg h-[50px] flex items-center gap-2 z-10">
       <span className="text-sm">{Math.round(zoom * 100)}%</span>
       <input 
         type="range" 
