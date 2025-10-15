@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { cmToPx, drawRulers, setupHiDPICanvas, tilePattern } from '@/utils/canvasUtils';
+import { cmToPx, drawRulers, setupHiDPICanvas, tilePattern, drawSinglePattern } from '@/utils/canvasUtils';
 import { PatternSettings } from '@/utils/types';
 
 type CanvasPreviewProps = {
@@ -66,6 +66,13 @@ export default function CanvasPreview({
                 settings,
             });
         }
+        //  if (imageBitmap) {
+        //     drawSinglePattern(ctx, imageBitmap, {
+        //         widthPx: fabricWidth,
+        //         heightPx: fabricHeight,
+        //         settings,
+        //     });
+        // }
 
         ctx.restore();
 
@@ -111,7 +118,7 @@ export default function CanvasPreview({
         const handleWheel = (e: WheelEvent) => {
             e.preventDefault();
             const zoomFactor = e.deltaY < 0 ? 1.1 : 0.9;
-            setZoom((z: any) => Math.min(Math.max(0.2, z * zoomFactor), 5));
+            setZoom((z: number) => Math.min(Math.max(0.2, z * zoomFactor), 5));
         };
 
         canvas.addEventListener('mousedown', handleMouseDown);

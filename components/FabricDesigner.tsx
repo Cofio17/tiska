@@ -8,6 +8,7 @@ import Toolbar from './Toolbar';
 import { MirrorMode, PatternSettings } from '@/utils/types';
 import ZoomSlider from './ZoomSlider';
 import { cmToPx, setupHiDPICanvas, tilePattern } from '@/utils/canvasUtils';
+import UploadTextureControl from './UploadTextureControl';
 
 const DEFAULT_WIDTH_CM = 145; // user can switch to 50 or 20
 const START_LENGTH_CM = 100; // starting length
@@ -16,8 +17,9 @@ export default function FabricDesigner() {
     const [imageBitmap, setImageBitmap] = useState<ImageBitmap | null>(null);
     const [widthCm, setWidthCm] = useState<number>(DEFAULT_WIDTH_CM);
     const [heightCm, setHeightCm] = useState<number>(START_LENGTH_CM);
+    const [materialId, setMaterialId] = useState<number | null>(null);
     // Zoom
-    const [zoom, setZoom] = useState(0);
+    const [zoom, setZoom] = useState(1);
     // pattern controls
     const [rotationDeg, setRotationDeg] = useState<number>(0);
     const [mirrorMode, setMirrorMode] = useState<MirrorMode>('none');
@@ -71,6 +73,7 @@ export default function FabricDesigner() {
                 />
             </div>
             <div className='flex flex-col gap-4 h-full'>
+                <UploadTextureControl materialId={materialId} setMaterialId={setMaterialId} />
                 <UploadControl onUpload={setImageBitmap} />
                 <SettingsPanel
                     widthCm={widthCm}

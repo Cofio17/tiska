@@ -1,13 +1,14 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import { useAppStore } from '@/store/useAppStore';
 
 type Props = { onUpload: (img: ImageBitmap | null) => void };
 
 export default function UploadControl({ onUpload }: Props) {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
-  const [dpi, setDpi] = useState<number | null>(null);
+  const { dpi, setDpi } = useAppStore();
 
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -24,9 +25,9 @@ export default function UploadControl({ onUpload }: Props) {
 
     // calculate DPI (assume 96 dpi for now, can improve with actual pixel/cm ratio if needed)
     const pxPerInch = 96;
-    const imageDPI = Math.round((imgEl.width / (imgEl.width / pxPerInch)) || pxPerInch); 
-    setDpi(imageDPI);
+    const imageDPI = Math.round((imgEl.width / (imgEl.width / pxPerInch)) || pxPerInch);
 
+    setDpi(imageDPI);
     onUpload(imgEl);
   }
 
@@ -46,7 +47,7 @@ export default function UploadControl({ onUpload }: Props) {
   // TODO: Dodati Modal kad se otvori za biranje materijala, traziti od BE Endpoint za to
   return (
     <div className='p-4 rounded-2xl border border-gray-200'>
-      <h2 className='font-semibold mb-2'>Upload Design</h2>
+      <h2 className='font-semibold mb-2'>Upload Your Design</h2>
       <input
         ref={inputRef}
         type='file'

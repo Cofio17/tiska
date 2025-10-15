@@ -9,7 +9,7 @@ export default function ZoomSlider({ zoom, onChange }: {
       <span className="text-sm">{Math.round(zoom * 100)}%</span>
       <input
         type="range"
-        min={0.2} max={5} step={0.1}
+        min={0.1} max={5} step={0.1}
         value={zoom}
         onChange={(e) => onChange(parseFloat(e.target.value))}
         className="w-40"
