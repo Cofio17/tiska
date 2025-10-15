@@ -43,7 +43,7 @@ export default function UploadControl({ onUpload }: Props) {
     if (dpi >= 150) return 'text-yellow-500';
     return 'text-red-600';
   };
-
+  // TODO: Dodati Modal kad se otvori za biranje materijala, traziti od BE Endpoint za to
   return (
     <div className='p-4 rounded-2xl border border-gray-200'>
       <h2 className='font-semibold mb-2'>Upload Design</h2>

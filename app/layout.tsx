@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "../styles/globals.scss"; // Tailwind
+import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Tiska Fabrics Tool",

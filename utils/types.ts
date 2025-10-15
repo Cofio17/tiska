@@ -1,4 +1,4 @@
-export type MirrorMode = "none" | "alternate" | "all";
+export type MirrorMode = "none" | "alternate" | "all" | 'reverse';
 
 export interface PatternSettings {
   rotationDeg: number; // rotation applied to each tile draw (deg)
